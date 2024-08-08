@@ -15,15 +15,13 @@ namespace DesafioActivex.Controllers
     [ApiController]
     public class StudentsController(ApplicationDbContext _context) : ControllerBase, IStudentsController
     {
-
-        // GET: api/Students
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
         {
             return await _context.Student.ToListAsync();
         }
 
-        // GET: api/Students/5
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudent(string id)
         {
@@ -37,8 +35,7 @@ namespace DesafioActivex.Controllers
             return student;
         }
 
-        // PUT: api/Students/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStudent(string id, Student student)
         {
@@ -68,8 +65,7 @@ namespace DesafioActivex.Controllers
             return NoContent();
         }
 
-        // POST: api/Students
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
@@ -93,7 +89,6 @@ namespace DesafioActivex.Controllers
             return CreatedAtAction("GetStudent", new { id = student.StudentID }, student);
         }
 
-        // DELETE: api/Students/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent(string id)
         {

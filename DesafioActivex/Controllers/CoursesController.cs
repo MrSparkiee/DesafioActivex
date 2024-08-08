@@ -8,21 +8,21 @@ using Microsoft.EntityFrameworkCore;
 using DesafioActivex.Data;
 using DesafioActivex.Models;
 using DesafioActivex.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DesafioActivex.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CoursesController(ApplicationDbContext _context) : ControllerBase, ICoursesController
     {
-        // GET: api/Courses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Course>>> GetCourse()
         {
             return await _context.Course.ToListAsync();
         }
 
-        // GET: api/Courses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Course>> GetCourse(string id)
         {
@@ -36,8 +36,7 @@ namespace DesafioActivex.Controllers
             return course;
         }
 
-        // PUT: api/Courses/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCourse(string id, Course course)
         {
@@ -67,8 +66,7 @@ namespace DesafioActivex.Controllers
             return NoContent();
         }
 
-        // POST: api/Courses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<Course>> PostCourse(Course course)
         {
@@ -92,7 +90,7 @@ namespace DesafioActivex.Controllers
             return CreatedAtAction("GetCourse", new { id = course.CourseID }, course);
         }
 
-        // DELETE: api/Courses/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCourse(string id)
         {
