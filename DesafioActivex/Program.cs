@@ -1,4 +1,9 @@
 
+using DesafioActivex.Controllers;
+using DesafioActivex.Data;
+using DesafioActivex.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace DesafioActivex
 {
     public class Program
@@ -14,7 +19,20 @@ namespace DesafioActivex
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                //options.UseInMemoryDatabase(builder.Configuration.GetConnectionString("MemoryDb")!)
+                options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"))
+            );
+
+            builder.Services.AddScoped<ICoursesController, CoursesController>();
+            builder.Services.AddScoped<IStudentsController, StudentsController>();
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                dbContext.Database.EnsureCreated();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
