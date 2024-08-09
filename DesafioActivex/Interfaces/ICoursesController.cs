@@ -5,7 +5,7 @@ namespace DesafioActivex.Interfaces
 {
     public interface ICoursesController
     {
-        Task<ActionResult<IEnumerable<Course>>> GetCourse();
+        Task<ActionResult<IEnumerable<Course>>> GetCourses();
         Task<ActionResult<Course>> GetCourse(string id);
         Task<IActionResult> PutCourse(string id, Course course);
         Task<ActionResult<Course>> PostCourse(Course course);

@@ -13,10 +13,17 @@ namespace DesafioActivex.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentsController(ApplicationDbContext _context) : ControllerBase, IStudentsController
+    public class StudentsController : ControllerBase, IStudentsController
     {
+        private readonly ApplicationDbContext _context;
+
+        public StudentsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
         {
             return await _context.Student.ToListAsync();
         }

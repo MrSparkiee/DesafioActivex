@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioActivex", "DesafioActivex\DesafioActivex.csproj", "{DECC0E13-F9A5-4D3F-9F69-EE757F162335}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioActivex.Tests", "DesafioActivex.Tests\DesafioActivex.Tests.csproj", "{28440C10-8D4E-4740-BF20-8DACE26C1494}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DECC0E13-F9A5-4D3F-9F69-EE757F162335}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DECC0E13-F9A5-4D3F-9F69-EE757F162335}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DECC0E13-F9A5-4D3F-9F69-EE757F162335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28440C10-8D4E-4740-BF20-8DACE26C1494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28440C10-8D4E-4740-BF20-8DACE26C1494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28440C10-8D4E-4740-BF20-8DACE26C1494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28440C10-8D4E-4740-BF20-8DACE26C1494}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

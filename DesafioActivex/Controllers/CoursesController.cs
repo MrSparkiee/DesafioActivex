@@ -15,10 +15,17 @@ namespace DesafioActivex.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class CoursesController(ApplicationDbContext _context) : ControllerBase, ICoursesController
+    public class CoursesController : ControllerBase, ICoursesController
     {
+        private readonly ApplicationDbContext _context;
+
+        public CoursesController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Course>>> GetCourse()
+        public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
         {
             return await _context.Course.ToListAsync();
         }
